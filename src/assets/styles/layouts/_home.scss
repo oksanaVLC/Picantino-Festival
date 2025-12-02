@@ -1,0 +1,164 @@
+@use "../variables" as v;
+@use "sass:color";
+
+//Basic laayout for non-Grid supporting browsers
+
+//Undo the basic layout for non-Grid-supporting browsers
+@supports (display: grid) {
+}
+
+.navbar-toggler-icon {
+  background-image: url("../images/chilimenu.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 78px;
+  height: 78px;
+}
+.offcanvas-title {
+  position: relative;
+  font-family: "Henny Penny", system-ui;
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-image: url("../images/topimg.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: none;
+  }
+}
+
+.logo {
+  height: 78px;
+}
+@media (min-width: 992px) {
+  .offcanvas-body {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    .navbar-nav {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.navbar-toggler {
+  outline: none !important;
+  box-shadow: none !important;
+
+  &:focus,
+  &:active,
+  &.focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+}
+
+main {
+  padding-top: 180px;
+  text-align: center;
+
+  h2 {
+    font-family: "Henny Penny", system-ui;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    font-size: 2.8rem;
+
+    &::first-letter {
+      color: v.$accent;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -100px;
+      transform: translateY(-50%);
+      width: 100px;
+      height: 100px;
+      background-image: url("../images/topimg.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+  }
+}
+
+figure {
+  position: relative;
+
+  .date-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: v.$accent;
+    color: v.$text-color;
+    padding: 0.2rem 0.8rem;
+    border-radius: 7px;
+    font-weight: bold;
+    font-family: "Pompiere", sans-serif;
+    z-index: 2;
+
+    .dateBig {
+      font-size: 1.5rem;
+      font-family: "Henny Penny", system-ui;
+    }
+  }
+
+  .figure-caption {
+    text-align: left;
+    margin-top: 0.5rem;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+  }
+}
+
+.info {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+  text-align: left;
+  border: 2px solid v.$primary-color;
+  border-radius: 7px;
+  padding: 2rem 3rem;
+  box-shadow: 4px 4px 10px rgba(0, 128, 0, 0.5);
+  background-color: v.$text-color;
+
+  .info-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 100px;
+    height: 100px;
+    background-image: url("../images/topimg.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 2;
+  }
+}
+
+.btn-custom {
+  text-align: center;
+  background-color: v.$primary-color;
+  color: v.$text-color;
+
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  box-shadow: 4px 4px 10px rgba(219, 219, 219, 0.5);
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: darken(v.$primary-color, 10%);
+    color: v.$text-color;
+  }
+}
