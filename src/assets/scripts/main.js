@@ -11,13 +11,3 @@ console.log(bootstrap);
 /**
  * Write any other JavaScript below
  */
-const bsOffcanvas = new bootstrap.Offcanvas(
-  document.getElementById("offcanvasNavbar"),
-  {
-    scroll: true,
-    backdrop: false,
-  }
-);
-
-// Mostrar el offcanvas programáticamente
-bsOffcanvas.show();
