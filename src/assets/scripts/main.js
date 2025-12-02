@@ -11,8 +11,13 @@ console.log(bootstrap);
 /**
  * Write any other JavaScript below
  */
+const bsOffcanvas = new bootstrap.Offcanvas(
+  document.getElementById("offcanvasNavbar"),
+  {
+    scroll: true,
+    backdrop: false,
+  }
+);
 
-+(function () {
-  const university = "UOC";
-  console.log(`Hello, ${university}!`);
-})();
+// Mostrar el offcanvas programáticamente
+bsOffcanvas.show();
