@@ -6,6 +6,7 @@
 /**
  * Import dependencies
  */
+
 @use "dependencies";
 
 /**
@@ -14,6 +15,9 @@
  */
 
 @use "layouts/home";
+@use "layouts/navbar";
+@use "layouts/footer";
+@use "layouts/participants";
 @use "globals";
 
 /**

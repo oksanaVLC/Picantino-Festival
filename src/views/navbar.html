@@ -1,87 +1,166 @@
-<header>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="index.html">
-        <img src="/src/assets/images/logo.png" alt="Mi Logo" class="logo" />
+<header class="header-nav">
+  <nav
+    class="header-nav__bar navbar navbar-expand-lg bg-body-tertiary fixed-top"
+  >
+    <div class="header-nav__container container-fluid">
+      <!-- LOGO -->
+      <a class="header-nav__logo-link navbar-brand" href="index.html">
+        <img
+          src="/src/assets/images/logo.png"
+          alt="Mi Logo"
+          class="header-nav__logo"
+        />
       </a>
+
+      <!-- BOTÓN HAMBURGUESA -->
       <button
-        class="navbar-toggler"
+        class="header-nav__toggle navbar-toggler"
         type="button"
         data-bs-toggle="offcanvas"
         data-bs-target="#offcanvasNavbar"
         aria-controls="offcanvasNavbar"
         aria-label="Toggle navigation"
       >
-        <span class="navbar-toggler-icon"></span>
+        <span class="header-nav__toggle-icon navbar-toggler-icon"></span>
       </button>
+
+      <!-- PANEL OFFCANVAS -->
       <div
-        class="offcanvas offcanvas-end"
+        class="header-nav__offcanvas offcanvas offcanvas-end"
         tabindex="-1"
         id="offcanvasNavbar"
         aria-labelledby="offcanvasNavbarLabel"
       >
-        <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Picantino</h5>
+        <!-- HEADER DEL OFFCANVAS -->
+        <div class="header-nav__offcanvas-header offcanvas-header">
+          <h5
+            class="header-nav__title offcanvas-title"
+            id="offcanvasNavbarLabel"
+          >
+            Picantino
+          </h5>
+
           <button
+            class="header-nav__close btn-close"
             type="button"
-            class="btn-close"
             data-bs-dismiss="offcanvas"
             aria-label="Close"
           ></button>
         </div>
-        <div class="offcanvas-body">
-          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="./index.html"
-                >Inicio</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../src/views/participantes.html"
-                >Participantes</a
-              >
-            </li>
-            <li class="nav-item dropdown">
+
+        <!-- CUERPO DEL OFFCANVAS -->
+        <div class="header-nav__offcanvas-body offcanvas-body">
+          <!-- MENÚ -->
+          <ul
+            class="header-nav__menu navbar-nav justify-content-end flex-grow-1 pe-3"
+          >
+            <li class="header-nav__item nav-item">
               <a
-                class="nav-link dropdown-toggle"
-                href="../src/views/agenda.html"
-                role="button"
+                class="header-nav__link nav-link active"
+                href="./index.html"
+                aria-current="page"
+              >
+                Inicio
+              </a>
+            </li>
+
+            <li class="header-nav__item nav-item">
+              <a class="header-nav__link nav-link" href="./participants.html">
+                Participantes
+              </a>
+            </li>
+
+            <!-- DROPDOWN -->
+            <li
+              class="header-nav__item header-nav__item--dropdown nav-item dropdown"
+            >
+              <a
+                class="header-nav__link header-nav__link--dropdown nav-link dropdown-toggle"
+                href="./agenda.html"
                 data-bs-toggle="dropdown"
+                role="button"
                 aria-expanded="false"
               >
                 Agenda
               </a>
-              <ul class="dropdown-menu">
+
+              <ul class="header-nav__dropdown dropdown-menu">
                 <li>
-                  <a class="dropdown-item" href="../src/views/agenda.html"
-                    >Eventos</a
+                  <a
+                    class="header-nav__dropdown-link dropdown-item"
+                    href="./agenda.html"
                   >
+                    Eventos
+                  </a>
                 </li>
+
                 <li><hr class="dropdown-divider" /></li>
+
                 <li>
-                  <a class="dropdown-item" href="../src/views/agenda.html"
-                    >Prensa</a
+                  <a
+                    class="header-nav__dropdown-link dropdown-item"
+                    href="./agenda.html"
                   >
+                    Prensa
+                  </a>
                 </li>
               </ul>
             </li>
-            <!-- Contacto ahora está fuera del dropdown -->
-            <li class="nav-item">
-              <a class="nav-link" href="../src/views/contacto.html">Contacto</a>
+
+            <!-- CONTACTO -->
+            <li class="header-nav__item nav-item">
+              <a class="header-nav__link nav-link" href="./contacto.html">
+                Contacto
+              </a>
             </li>
           </ul>
 
-          <form class="d-flex mt-3" role="search">
+          <!-- BUSCADOR -->
+          <form class="header-nav__search d-flex mt-3" role="search">
             <input
-              class="form-control me-2"
+              class="header-nav__search-input form-control me-2"
               type="search"
               placeholder="..."
               aria-label="Search"
             />
-            <button class="btn btn-outline-success" type="submit">
+
+            <button
+              class="header-nav__search-btn btn btn-outline-success"
+              type="submit"
+            >
               Buscar
             </button>
           </form>
+
+          <!-- SOCIAL LINKS -->
+          <div class="header-nav__social">
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              class="header-nav__social-link"
+              aria-label="Instagram"
+            >
+              <i class="bi bi-instagram"></i>
+            </a>
+
+            <a
+              href="https://youtube.com"
+              target="_blank"
+              class="header-nav__social-link"
+              aria-label="YouTube"
+            >
+              <i class="bi bi-youtube"></i>
+            </a>
+
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              class="header-nav__social-link"
+              aria-label="Facebook"
+            >
+              <i class="bi bi-facebook"></i>
+            </a>
+          </div>
         </div>
       </div>
     </div>

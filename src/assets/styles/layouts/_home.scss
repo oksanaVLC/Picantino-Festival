@@ -3,222 +3,313 @@
 
 //Basic laayout for non-Grid supporting browsers
 
-//Undo the basic layout for non-Grid-supporting browsers
-@supports (display: grid) {
-}
-
-.navbar-toggler-icon {
-  background-image: url("../images/chilimenu.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 58px;
-  height: 58px;
-}
-.offcanvas-title {
-  position: relative;
-  font-family: "Henny Penny", system-ui;
-
-  &::after {
-    content: "";
-    position: absolute;
-    width: 48px;
-    height: 48px;
-    background-image: url("../images/topimg.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    pointer-events: none;
-  }
-}
-
-.logo {
-  height: 58px;
-  width: 58px;
-}
-@media (min-width: 992px) {
-  .offcanvas-body {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-
-    .navbar-nav {
-      margin-bottom: 0;
-    }
-  }
-}
-
-.navbar-toggler {
-  outline: none !important;
-  box-shadow: none !important;
-
-  &:focus,
-  &:active,
-  &.focus {
-    outline: none !important;
-    box-shadow: none !important;
-  }
-}
-
-main {
+.main-content {
   padding-top: 120px;
   text-align: center;
 
-  h2 {
-    font-family: "Henny Penny", system-ui;
-    position: relative;
-    display: inline-block;
-    text-align: center;
-    font-size: 3.2rem;
+  .hero-section {
+    &__subtitle {
+      font-family: "Henny Penny", system-ui;
+      position: relative;
+      display: inline-block;
+      text-align: center;
+      font-size: 3.2rem;
 
-    &::first-letter {
-      color: v.$accent;
+      &::first-letter {
+        color: v.$accent;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: -78px;
+        transform: translateY(-50%);
+        width: 78px;
+        height: 78px;
+        background-image: url("../images/topimg.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+    }
+  }
+
+  .hero-figure {
+    position: relative;
+
+    &__date-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: v.$accent;
+      color: v.$text-color;
+      padding: 0.2rem 0.8rem;
+      border-radius: 7px;
+      font-weight: bold;
+      font-family: "Pompiere", sans-serif;
+      z-index: 2;
+
+      &__date-day {
+        font-size: 1.5rem;
+        font-family: "Henny Penny", system-ui;
+      }
     }
 
-    &::after {
-      content: "";
+    &__caption {
+      text-align: left;
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+    }
+
+    &__image {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  .info-section {
+    /* Hacemos que este bloque sea un contenedor */
+    container-type: inline-size;
+    container-name: info;
+
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+    text-align: left;
+    border: 2px solid v.$primary-color;
+    border-radius: 7px;
+    padding: 2.5rem 5rem;
+    box-shadow: 4px 4px 10px rgba(0, 128, 0, 0.5);
+    background-color: v.$text-color;
+
+    &__details {
+      margin-bottom: 20px;
+    }
+
+    &__badge {
       position: absolute;
-      top: 50%;
-      right: -78px;
-      transform: translateY(-50%);
-      width: 78px;
-      height: 78px;
+      top: 5px;
+      left: 5px;
+      width: 58px;
+      height: 58px;
       background-image: url("../images/topimg.png");
       background-size: contain;
       background-repeat: no-repeat;
+      background-position: center;
+      z-index: 2;
     }
-  }
-}
 
-figure {
-  position: relative;
+    &__item {
+      margin: 0.5rem 0;
+    }
 
-  .date-badge {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    background-color: v.$accent;
-    color: v.$text-color;
-    padding: 0.2rem 0.8rem;
-    border-radius: 7px;
-    font-weight: bold;
-    font-family: "Pompiere", sans-serif;
-    z-index: 2;
-
-    .dateBig {
+    &__button {
+      display: block;
+      /*  margin: 2rem auto 0 auto; si quisiera centrar el botón */
+      text-align: center;
+      background-color: v.$primary-color;
+      color: v.$text-color;
+      padding: 0.5rem 1rem;
+      margin-top: 2rem;
+      margin-left: auto; /* empuja a la derecha */
+      font-weight: bold;
       font-size: 1.5rem;
-      font-family: "Henny Penny", system-ui;
+      box-shadow: 4px 4px 10px rgba(219, 219, 219, 0.5);
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: color.scale(v.$primary-color, $lightness: -10%);
+        color: v.$text-color;
+      }
     }
   }
 
-  .figure-caption {
-    text-align: left;
-    font-size: 1.2rem;
-    margin-top: 0.5rem;
-  }
+  /*   CONTAINER QUERY AÑADIDO      */
 
-  img {
-    display: block;
-    width: 100%;
-  }
-}
+  @container info (min-width: 500px) {
+    .info-section__details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 2rem;
+      align-items: start;
+    }
 
-.info {
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  position: relative;
-  text-align: left;
-  border: 2px solid v.$primary-color;
-  border-radius: 7px;
-  padding: 2.5rem 5rem;
-  box-shadow: 4px 4px 10px rgba(0, 128, 0, 0.5);
-  background-color: v.$text-color;
+    .info-section__button {
+      grid-column: 1 / -1; /* ocupa desde la columna 1 hasta la última */
 
-  .info-badge {
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    width: 58px;
-    height: 58px;
-    background-image: url("../images/topimg.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    z-index: 2;
-  }
-}
-
-.btn-custom {
-  display: block;
-  margin: 2rem auto 0 auto;
-  text-align: center;
-  background-color: v.$primary-color;
-  color: v.$text-color;
-  padding: 0.5rem 1rem;
-  font-weight: bold;
-  font-size: 1.5rem;
-  box-shadow: 4px 4px 10px rgba(219, 219, 219, 0.5);
-  transition: all 0.3s ease;
-
-  &:hover {
-    background-color: darken(v.$primary-color, 10%);
-    color: v.$text-color;
-  }
-}
-
-// Links de navbar
-.navbar .nav-link {
-  font-size: 2rem;
-  line-height: 1.5;
-}
-
-.offcanvas-title {
-  font-size: 2.5rem;
-  font-weight: bold;
-}
-
-.offcanvas-body form input.form-control {
-  font-size: 1.8rem;
-  padding: 0.5rem 1rem;
-}
-
-.offcanvas-body form button.btn {
-  font-size: 1.8rem;
-  padding: 0.5rem 1.5rem;
-}
-
-.offcanvas-header .btn-close {
-  width: 2.5rem;
-  height: 2.5rem;
-  font-size: 2rem;
-}
-
-footer {
-  font-size: 1.5rem;
-  line-height: 1.6;
-
-  h5 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-
-  p,
-  small {
-    font-size: 1.4rem;
-  }
-
-  a {
-    font-size: 1.4rem; // enlaces un poco más grandes
-    color: inherit;
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
+      margin-left: auto;
     }
   }
+}
 
-  .list-unstyled li {
-    margin-bottom: 0.5rem;
+// Undo basic layout for non-Grid-supporting browsers on desktop
+.festival {
+  display: none;
+}
+
+@supports (display: grid) {
+  @media (min-width: 1024px) {
+    .main-content {
+      display: none;
+    }
+    .festival {
+      display: grid;
+      grid-template-columns: 200px repeat(4, 1fr); // he hecho la columna de la izquierda más estrecha
+      grid-template-rows: repeat(3, 350px);
+      padding-top: 120px;
+      position: relative;
+      max-width: 90%;
+      margin: auto;
+
+      &__text-vertical {
+        grid-column: 1 / 2;
+        grid-row: 1 / 4;
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        background: v.$dark;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 4em;
+      }
+
+      &__photo-main {
+        z-index: -1;
+        grid-column: 2 / 5;
+        grid-row: 1 / 4;
+        background: url("../images/main1.jpg") center/cover no-repeat;
+        position: relative;
+      }
+
+      &__title {
+        grid-column: 3 / 4;
+        grid-row: 1 / 2;
+        position: relative;
+        padding-top: 40px;
+        /*display: flex;
+    align-items: center;
+    justify-content: center;*/
+        font-size: 5rem;
+        font-weight: bold;
+        color: #111;
+        z-index: 3;
+        font-family: "Henny Penny", system-ui;
+
+        &::first-letter {
+          color: v.$accent;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          width: 78px;
+          height: 78px;
+          background-image: url("../images/topimg.png");
+          background-size: contain;
+          background-repeat: no-repeat;
+        }
+      }
+
+      &__year {
+        grid-column: 2 / 4;
+        grid-row: 2 / 3;
+        display: flex;
+        align-items: flex-start; /* lo pego al top de la celda */
+        justify-content: center;
+        font-size: 5rem;
+        font-weight: bold;
+        color: red;
+        z-index: 3;
+      }
+      &__overlay {
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* background: rgba(0, 0, 0, 0.55);*/
+        background: v.$overlay-light;
+        color: #111;
+        padding: 1rem;
+        font-size: 2.5rem;
+        text-align: center;
+        font-weight: bold;
+
+        &--music {
+          grid-column: 3 / 4;
+          grid-row: 3 / 4;
+          background: v.$overlay-dark;
+          color: #fff;
+        }
+
+        &--chefs {
+          grid-column: 4 / 5;
+          grid-row: 2 / 3;
+        }
+
+        &--info {
+          grid-column: 5 / 6;
+          grid-row: 1 / 2;
+          background-color: v.$primary-color;
+          color: #fff;
+
+          align-items: flex-start;
+          p {
+            font-size: 2rem;
+          }
+        }
+      }
+
+      &__photo-small {
+        grid-column: 4 / 6;
+        grid-row: 2 / 4;
+        background: url("../images/small.jpg") center/cover no-repeat;
+      }
+
+      &__readmore {
+        grid-column: 5/6;
+        grid-row: 3 / 4;
+        background: rgba(245, 244, 244, 0.55);
+        display: flex;
+        flex-direction: column; /* apila el texto y el icono verticalmente */
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 3rem;
+        text-align: center; /* asegura que el texto esté centrado si ocupa varias líneas */
+        i {
+          margin-top: 0.5rem;
+          font-size: 4rem;
+          color: #000 !important; /* fuerza que sea negro por defecto */
+          transition: color 0.2s ease;
+        }
+
+        &:hover i {
+          color: v.$primary-color !important; /* fuerza el verde en hover */
+        }
+      }
+    }
+  }
+  @media (min-width: 1324px) {
+    .festival {
+      max-width: 80%;
+    }
+  }
+  @media (min-width: 1864px) {
+    .festival {
+      max-width: 70%;
+    }
+  }
+  @media (min-width: 1780px) {
+    .festival {
+      &__title {
+        grid-column: 2 / 4;
+        grid-row: 1 / 2;
+        padding-left: 50px;
+        font-size: 7rem;
+      }
+    }
   }
 }

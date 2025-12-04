@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="es">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link rel="stylesheet" type="text/css" href="./assets/styles/main.scss" />
-    <!-- do not remove this line! -->
+    <link rel="stylesheet" href="./assets/styles/main.scss" />
     <title>Festival de la cocina tradicional Picantino</title>
     <link
       rel="icon"
@@ -16,39 +14,91 @@
   </head>
   <body>
     <include src="./views/navbar.html"></include>
-    <main>
+
+    <div class="festival">
+      <div class="festival__text-vertical">Festival de comida local</div>
+
+      <div class="festival__photo-main"></div>
+      <div class="festival__title">Picantino</div>
+      <div class="festival__year">2025</div>
+
+      <div class="festival__overlay festival__overlay--music">
+        Música en vivo
+
+        <img
+          src="/src/assets/images/note.png"
+          alt="Mi Logo"
+          class="note"
+          style="width: 58px"
+        />
+      </div>
+
+      <div class="festival__overlay festival__overlay--chefs">
+        Chefs invitados
+        <img
+          src="/src/assets/images/cook.webp"
+          alt="chef"
+          class="note"
+          style="width: 120px"
+        />
+      </div>
+
+      <div
+        class="festival__overlay festival__overlay--info"
+        style="display: flex; flex-direction: column"
+      >
+        <p><b>Fecha:</b> 07/12/2025</p>
+        <p><b>Hora:</b> 11:00</p>
+        <p><b>Lugar:</b> Plaza Mayor</p>
+      </div>
+
+      <div class="festival__photo-small"></div>
+
+      <div class="festival__overlay festival__readmore">
+        Más info
+        <i class="fa-solid fa-circle-info"></i>
+      </div>
+    </div>
+
+    <main class="main-content">
       <div class="container">
-        <h1>Festival de gastronomía local</h1>
-        <h2>Picantino</h2>
-        <h3 style="font-style: italic">Spice up your life!</h3>
+        <header class="hero-section">
+          <h1 class="hero-section__title">Festival de gastronomía local</h1>
+          <h2 class="hero-section__subtitle">Picantino</h2>
+          <h3 class="hero-section__tagline">Spice up your life!</h3>
 
-        <figure class="figure">
-          <img
-            src="/src/assets/images/main1.jpg"
-            alt="foto del festival"
-            class="hero"
-            style="max-height: 700px"
-          />
-          <div class="date-badge"><span class="dateBig">7</span> Dec</div>
-          <figcaption class="figure-caption">
-            Picantino Festival 2024.
-          </figcaption>
-        </figure>
+          <figure class="hero-figure">
+            <img
+              src="/src/assets/images/main1.jpg"
+              alt="foto del festival"
+              class="hero-figure__image"
+            />
+            <div class="hero-figure__date-badge">
+              <span class="hero-figure__date-day">7</span> Dec
+            </div>
+            <figcaption class="hero-figure__caption">
+              Picantino Festival 2024.
+            </figcaption>
+          </figure>
+        </header>
 
-        <h3>Información</h3>
-        <div class="info">
-          <div class="info-badge"></div>
-          <p><b>Fecha:</b> 07/12/2025</p>
-          <p><b>Hora:</b> 11:00</p>
-          <p><b>Lugar:</b> Plaza Mayor</p>
-          <!-- Botón con tus estilos -->
-          <button class="btn btn-custom">Más información</button>
-        </div>
+        <section class="info-section">
+          <h3 class="info-section__title">Información</h3>
+          <div class="info-section__details">
+            <div class="info-section__badge"></div>
+            <p class="info-section__item"><b>Fecha:</b> 07/12/2025</p>
+            <p class="info-section__item"><b>Hora:</b> 11:00</p>
+            <p class="info-section__item"><b>Lugar:</b> Plaza Mayor</p>
+            <p class="info-section__item"><b>Número participantes:</b> 756</p>
+          </div>
+          <button class="btn btn--custom info-section__button">
+            Más información
+          </button>
+        </section>
       </div>
     </main>
 
     <include src="./views/footer.html"></include>
     <script type="module" src="./assets/scripts/main.js"></script>
-    <!-- do not remove this line! -->
   </body>
 </html>
