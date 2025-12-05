@@ -16,10 +16,37 @@ import "bootstrap-icons/font/bootstrap-icons.css";
  * Write any other JavaScript below
  */
 
-const button = document.getElementById("load-more");
-button.addEventListener("click", () => {
-  document.querySelectorAll(".participant-card.extra").forEach((card) => {
-    card.style.display = "flex";
-  });
-  button.style.display = "none";
+document.addEventListener("DOMContentLoaded", () => {
+  const button = document.getElementById("load-more");
+  if (button) {
+    button.addEventListener("click", () => {
+      document.querySelectorAll(".participant-card.extra").forEach((card) => {
+        card.style.display = "flex";
+      });
+      button.style.display = "none";
+    });
+  }
+
+  const form = document.getElementById("contactForm");
+  const successMessage = document.getElementById("formSuccess");
+  if (form && successMessage) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const formData = new FormData(form);
+
+      fetch("/", {
+        method: "POST",
+        body: formData,
+      })
+        .then(() => {
+          form.style.display = "none";
+          successMessage.style.display = "block";
+          successMessage.scrollIntoView({ behavior: "smooth" });
+        })
+        .catch((error) => {
+          alert("Error al enviar el formulario");
+          console.log(error);
+        });
+    });
+  }
 });
