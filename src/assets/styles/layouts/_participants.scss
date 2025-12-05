@@ -53,6 +53,7 @@
 }
 
 /* Container queries: 3 columnas en contenedores grandes */
+
 @container (min-width: 870px) {
   .participant-card {
     flex: 1 1 calc(33.333% - 2rem); /* 3 columnas */

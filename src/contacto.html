@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./assets/styles/main.scss" />
+    <title>Participantes – Festival Picantino</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="./assets/images/favicon-32x32.png"
+    />
+  </head>
+  <body>
+    <include src="./views/navbar.html"></include>
+
+    <section class="form">
+      <h2 class="form__title">
+        Para participar en este festival, rellene este formulario
+      </h2>
+
+      <!-- Formulario -->
+      <form
+        class="form__body"
+        id="contactForm"
+        name="contact"
+        method="POST"
+        data-netlify="true"
+      >
+        <!-- Input oculto para Netlify -->
+        <input type="hidden" name="form-name" value="contact" />
+
+        <div class="form__group">
+          <label class="form__label" for="nombre">Nombre</label>
+          <input
+            class="form__input"
+            type="text"
+            id="nombre"
+            name="nombre"
+            required
+          />
+        </div>
+
+        <div class="form__group">
+          <label class="form__label" for="apellido">Apellido</label>
+          <input
+            class="form__input"
+            type="text"
+            id="apellido"
+            name="apellido"
+            required
+          />
+        </div>
+
+        <div class="form__group">
+          <label class="form__label" for="email">Correo electrónico</label>
+          <input
+            class="form__input"
+            type="email"
+            id="email"
+            name="email"
+            required
+          />
+        </div>
+
+        <div class="form__group">
+          <label class="form__label" for="mensaje">Mensaje</label>
+          <textarea
+            class="form__textarea"
+            id="mensaje"
+            name="mensaje"
+            rows="5"
+            required
+          ></textarea>
+        </div>
+
+        <div class="form__group">
+          <button class="form__button" type="submit">Enviar mensaje</button>
+        </div>
+      </form>
+
+      <!-- Mensaje de éxito -->
+      <div id="formSuccess" class="form__success">
+        ¡Gracias! Tu mensaje ha sido enviado.
+      </div>
+    </section>
+
+    <include src="./views/footer.html"></include>
+
+    <script>
+      const form = document.getElementById("contactForm");
+      const successMessage = document.getElementById("formSuccess");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault(); // evita recarga de página
+
+        const formData = new FormData(form);
+
+        fetch("/", {
+          method: "POST",
+          body: formData,
+        })
+          .then(() => {
+            // Oculta solo los campos del formulario, título permanece
+            form.style.display = "none";
+            // Muestra el mensaje de éxito
+            successMessage.style.display = "block";
+            // Opcional: desplazarse hasta el mensaje
+            successMessage.scrollIntoView({ behavior: "smooth" });
+          })
+          .catch((error) => alert("Error al enviar el formulario"));
+      });
+    </script>
+  </body>
+</html>
