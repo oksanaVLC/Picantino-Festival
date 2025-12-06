@@ -32,10 +32,6 @@ document.addEventListener("DOMContentLoaded", () => {
   if (form && successMessage) {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-
-      // 💡 Esto hace que el móvil deje de mantener el scroll abajo
-      document.activeElement.blur();
-
       const formData = new FormData(form);
 
       fetch("/", {
@@ -45,13 +41,8 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(() => {
           form.style.display = "none";
           successMessage.style.display = "block";
-
-          // 💡 El pequeño setTimeout permite al DOM actualizarse
           setTimeout(() => {
-            successMessage.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-            });
+            window.scrollTo({ top: 0, behavior: "smooth" });
           }, 100);
         })
         .catch((error) => {
