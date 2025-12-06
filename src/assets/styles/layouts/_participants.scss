@@ -8,19 +8,27 @@
   justify-content: center;
   gap: 2rem;
   padding-top: 100px;
+  padding-inline: 1rem; //  pequeño padding a izquierda y derecha
+
   max-width: 1200px; /* ancho máximo para que no se estiren demasiado */
   margin: 0 auto;
 
   /* Declaro como contenedor para container queries */
   container-type: inline-size;
+  &--title {
+    width: 100%;
+    text-align: center;
+    font-size: 2.5rem;
+  }
 }
 
 .participant-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex: 1 1 calc(50% - 2rem); /* POR DEFECTO: 2 columnas en móviles */
-  max-width: 350px;
+
+  flex: 1 1 45%; /* POR DEFECTO: 2 columnas en móviles */
+  max-width: 45%;
   padding: 1rem;
   border: 1px solid #ccc;
   border-radius: 10px;
@@ -37,12 +45,12 @@
 
 .participant-card h3 {
   margin: 0.5rem 0;
-  font-size: 2.7rem;
+  font-size: 2rem;
   text-align: center;
 }
 
 .participant-card p {
-  font-size: 2rem;
+  font-size: 1.8rem;
   text-align: center;
   color: #555;
 }
@@ -79,4 +87,11 @@
 
 .participant-card.extra {
   display: none;
+}
+
+@media (max-width: 360px) {
+  .participant-card {
+    flex: 1 1 100%; // 1 columna
+    max-width: 100%;
+  }
 }
