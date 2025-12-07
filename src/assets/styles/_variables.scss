@@ -1,12 +1,15 @@
 @use "sass:color";
 
-/*$theme-colors: (
-  "primary": #1ec43a // pon el código de color que prefieras,,
-);*/
-
 $text-color: #fff;
-$primary-color: rgb(7, 151, 79);
+$primary-color: rgb(7 151 79);
 $accent: red;
-$dark: #212529; /*color del footer de bootstrap*/
-$overlay-dark: rgba(0, 0, 0, 0.55);
-$overlay-light: rgba(245, 244, 244, 0.55);
+$dark: #212529;
+$overlay-dark: rgb(0 0 0 / 55%);
+$overlay-light: rgb(245 244 244 / 55%);
+
+// Sobreescribiendo la valores de bootstrap,
+$theme-colors: (
+  "primary": $primary-color,
+  "dark": $dark,
+  "white": $text-color,
+);

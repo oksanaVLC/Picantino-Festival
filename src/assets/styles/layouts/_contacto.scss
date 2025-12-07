@@ -4,8 +4,7 @@
 .form {
   max-width: 600px;
   margin: 2rem auto;
-
-  padding: 78px 2rem 2rem 2rem; // Arriba, derecha, abajo, izquierda
+  padding: 78px 2rem 2rem; // Arriba, derecha, abajo, izquierda
   background-color: #fff;
 
   &__title {
@@ -35,6 +34,8 @@
 
   &__input,
   &__textarea {
+    resize: vertical;
+    min-height: 120px;
     padding: 0.75rem 1rem;
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -43,14 +44,9 @@
 
     &:focus {
       border-color: v.$primary-color;
-      box-shadow: 0 0 0 3px rgba(123, 185, 7, 0.2);
+      box-shadow: 0 0 0 3px rgb(123 185 7 / 20%);
       outline: none;
     }
-  }
-
-  &__textarea {
-    resize: vertical;
-    min-height: 120px;
   }
 
   &__button {
@@ -72,6 +68,7 @@
       transform: scale(0.98);
     }
   }
+
   &__success {
     display: none;
     margin-top: 2rem;

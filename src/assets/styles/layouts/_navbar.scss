@@ -10,6 +10,27 @@
     animation: logo-spin 1s ease-out forwards;
   }
 
+  &__social {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    align-items: center;
+
+    @media (width >= 992px) {
+      display: none;
+    }
+  }
+
+  &__social-link {
+    font-size: 2.4rem;
+    color: #000;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #ccc;
+    }
+  }
+
   &__toggle {
     outline: none !important;
     box-shadow: none !important;
@@ -30,6 +51,7 @@
     width: 58px;
     height: 58px;
   }
+
   &__dropdown.dropdown-menu {
     font-size: 1.8rem;
   }
@@ -60,7 +82,7 @@
 
   &__offcanvas-body {
     // Desktop layout
-    @media (min-width: 992px) {
+    @media (width >= 992px) {
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -96,31 +118,8 @@
   0% {
     transform: rotateY(90deg); // empieza de lado (derecha)
   }
+
   100% {
     transform: rotateY(0deg); // termina mirando hacia ti
-  }
-}
-/* ------------------------------
-   SOCIAL LINKS
---------------------------------*/
-.header-nav {
-  &__social {
-    display: flex;
-    gap: 1.5rem;
-    margin-top: 2rem;
-    align-items: center;
-    @media (min-width: 992px) {
-      display: none;
-    }
-  }
-
-  &__social-link {
-    font-size: 2.4rem;
-    color: #000;
-    transition: color 0.3s ease;
-
-    &:hover {
-      color: #ccc;
-    }
   }
 }

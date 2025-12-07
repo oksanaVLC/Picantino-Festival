@@ -1,0 +1,16 @@
+{
+  "extends": ["stylelint-config-standard", "stylelint-config-recommended-scss"],
+  "plugins": ["stylelint-scss"],
+  "rules": {
+    "selector-class-pattern": [
+      "^[a-z0-9]+([a-z0-9-]+)?(__[a-z0-9-]+)?(--[a-z0-9-]+)?$",
+      {
+        "message": "Usa clases con guiones o BEM (block__element--modifier)."
+      }
+    ],
+    "block-no-empty": true,
+    "color-no-invalid-hex": true,
+    "max-nesting-depth": 4,
+    "scss/at-rule-no-unknown": true
+  }
+}

@@ -15,50 +15,52 @@
   <body>
     <include src="./views/navbar.html"></include>
 
-    <div class="festival">
-      <div class="festival__text-vertical">Festival de comida local</div>
+    <header>
+      <div class="festival">
+        <div class="festival__text-vertical">Festival de comida local</div>
 
-      <div class="festival__photo-main"></div>
-      <div class="festival__title">Picantino</div>
-      <div class="festival__year">2025</div>
+        <div class="festival__photo-main"></div>
+        <div class="festival__title">Picantino</div>
+        <div class="festival__year">2025</div>
 
-      <div class="festival__overlay festival__overlay--music">
-        Música en vivo
+        <div class="festival__overlay festival__overlay--music">
+          Música en vivo
 
-        <img
-          src="/src/assets/images/note.png"
-          alt="Mi Logo"
-          class="note"
-          style="width: 58px"
-        />
+          <img
+            src="/src/assets/images/note.png"
+            alt="Mi Logo"
+            class="note"
+            style="width: 58px"
+          />
+        </div>
+
+        <div class="festival__overlay festival__overlay--chefs">
+          Chefs invitados
+          <img
+            src="/src/assets/images/cook.webp"
+            alt="chef"
+            class="note"
+            style="width: 120px"
+          />
+        </div>
+
+        <div
+          class="festival__overlay festival__overlay--info"
+          style="display: flex; flex-direction: column"
+        >
+          <p><b>Fecha:</b> 07/12/2025</p>
+          <p><b>Hora:</b> 11:00</p>
+          <p><b>Lugar:</b> Plaza Mayor</p>
+        </div>
+
+        <div class="festival__photo-small"></div>
+
+        <div class="festival__overlay festival__readmore">
+          Más info
+          <i class="fa-solid fa-circle-info"></i>
+        </div>
       </div>
-
-      <div class="festival__overlay festival__overlay--chefs">
-        Chefs invitados
-        <img
-          src="/src/assets/images/cook.webp"
-          alt="chef"
-          class="note"
-          style="width: 120px"
-        />
-      </div>
-
-      <div
-        class="festival__overlay festival__overlay--info"
-        style="display: flex; flex-direction: column"
-      >
-        <p><b>Fecha:</b> 07/12/2025</p>
-        <p><b>Hora:</b> 11:00</p>
-        <p><b>Lugar:</b> Plaza Mayor</p>
-      </div>
-
-      <div class="festival__photo-small"></div>
-
-      <div class="festival__overlay festival__readmore">
-        Más info
-        <i class="fa-solid fa-circle-info"></i>
-      </div>
-    </div>
+    </header>
 
     <main class="main-content">
       <div class="container">
@@ -91,8 +93,15 @@
             <p class="info-section__item"><b>Lugar:</b> Plaza Mayor</p>
             <p class="info-section__item"><b>Número participantes:</b> 756</p>
           </div>
-          <a href="./agenda.html">
+          <!-- Botón con estilos BEM   <a href="./agenda.html">
             <button class="btn btn--custom info-section__button">
+              Más información
+            </button>
+          </a>
+       -->
+
+          <a href="./contacto.html">
+            <button type="button" class="btn btn-primary mx-auto d-block">
               Más información
             </button>
           </a>

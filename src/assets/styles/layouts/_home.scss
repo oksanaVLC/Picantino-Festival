@@ -1,7 +1,7 @@
 @use "../variables" as v;
 @use "sass:color";
 
-//Basic laayout for non-Grid supporting browsers
+//Basic layout for non-Grid supporting browsers
 
 .main-content {
   padding-top: 120px;
@@ -24,7 +24,6 @@
         content: "";
         position: absolute;
         top: 50%;
-
         transform: translateY(-50%);
         width: 78px;
         height: 78px;
@@ -37,10 +36,12 @@
 
   .hero-figure {
     position: relative;
+
     &__date-day {
       font-size: 2.2rem;
       font-family: "Henny Penny", system-ui;
     }
+
     &__date-badge {
       position: absolute;
       top: 10px;
@@ -50,7 +51,7 @@
       padding: 0.2rem 0.8rem;
       border-radius: 7px;
       font-weight: bold;
-      font-family: "Pompiere", sans-serif;
+      font-family: Pompiere, sans-serif;
       font-size: 1.5rem;
       z-index: 2;
     }
@@ -71,7 +72,6 @@
     /* Hacemos que este bloque sea un contenedor */
     container-type: inline-size;
     container-name: info;
-
     display: block;
     width: 100%;
     max-width: 100%;
@@ -79,10 +79,10 @@
     text-align: left;
     border: 2px solid v.$primary-color;
     border-radius: 7px;
-
     padding: 2.5rem 1.5rem; // menos padding en móvil
-    box-shadow: 4px 4px 10px rgba(0, 128, 0, 0.5);
+    box-shadow: 4px 4px 10px rgb(0 128 0 / 50%);
     background-color: v.$text-color;
+
     &__title {
       margin-left: 50px; // separa contenido del badge sin aumentar padding general
     }
@@ -111,6 +111,7 @@
 
     &__button {
       display: block;
+
       /*  margin: 2rem auto 0 auto; si quisiera centrar el botón */
       text-align: center;
       background-color: v.$primary-color;
@@ -120,7 +121,7 @@
       margin-left: auto; /* empuja a la derecha */
       font-weight: bold;
       font-size: 1.5rem;
-      box-shadow: 4px 4px 10px rgba(219, 219, 219, 0.5);
+      box-shadow: 4px 4px 10px rgb(219 219 219 / 50%);
       transition: all 0.3s ease;
 
       &:hover {
@@ -142,7 +143,6 @@
 
     .info-section__button {
       grid-column: 1 / -1; /* ocupa desde la columna 1 hasta la última */
-
       margin-left: auto;
     }
   }
@@ -154,10 +154,11 @@
 }
 
 @supports (display: grid) {
-  @media (min-width: 1024px) {
+  @media (width >= 1024px) {
     .main-content {
       display: none;
     }
+
     .festival {
       display: grid;
       grid-template-columns: 200px repeat(4, 1fr); // he hecho la columna de la izquierda más estrecha
@@ -194,9 +195,10 @@
         grid-row: 1 / 2;
         position: relative;
         padding-top: 40px;
-        /*display: flex;
+
+        /* display: flex;
     align-items: center;
-    justify-content: center;*/
+    justify-content: center; */
         font-size: 5rem;
         font-weight: bold;
         color: #111;
@@ -229,12 +231,14 @@
         color: red;
         z-index: 3;
       }
+
       &__overlay {
         z-index: 2;
         display: flex;
         align-items: center;
         justify-content: center;
-        /* background: rgba(0, 0, 0, 0.55);*/
+
+        /* background: rgba(0, 0, 0, 0.55); */
         background: v.$overlay-light;
         color: #111;
         padding: 1rem;
@@ -259,8 +263,8 @@
           grid-row: 1 / 2;
           background-color: v.$primary-color;
           color: #fff;
-
           align-items: flex-start;
+
           p {
             font-size: 2rem;
           }
@@ -276,38 +280,41 @@
       &__readmore {
         grid-column: 5/6;
         grid-row: 3 / 4;
-        background: rgba(245, 244, 244, 0.55);
+        background: rgb(245 244 244 / 55%);
         display: flex;
-        flex-direction: column; /* apila el texto y el icono verticalmente */
+        flex-direction: column;
         align-items: center;
         justify-content: center;
         font-weight: bold;
         font-size: 3rem;
-        text-align: center; /* asegura que el texto esté centrado si ocupa varias líneas */
+        text-align: center;
+
         i {
           margin-top: 0.5rem;
           font-size: 4rem;
-          color: #000 !important; /* fuerza que sea negro por defecto */
           transition: color 0.2s ease;
         }
 
         &:hover i {
-          color: v.$primary-color !important; /* fuerza el verde en hover */
+          color: v.$primary-color;
         }
       }
     }
   }
-  @media (min-width: 1324px) {
+
+  @media (width >= 1324px) {
     .festival {
       max-width: 80%;
     }
   }
-  @media (min-width: 1864px) {
+
+  @media (width >= 1864px) {
     .festival {
       max-width: 70%;
     }
   }
-  @media (min-width: 1780px) {
+
+  @media (width >= 1780px) {
     .festival {
       &__title {
         grid-column: 2 / 4;
@@ -317,4 +324,10 @@
       }
     }
   }
+}
+
+.btn-primary {
+  color: #fff;
+  font-size: 2rem;
+  margin-top: 50px;
 }
