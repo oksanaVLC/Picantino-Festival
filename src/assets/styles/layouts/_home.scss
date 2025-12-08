@@ -183,7 +183,7 @@
         z-index: -1;
         grid-column: 2 / 5;
         grid-row: 1 / 4;
-        background: url("../images/main1.jpg") center/cover no-repeat;
+        background: url("../images/main1-small.jpg") center/cover no-repeat;
         position: relative;
       }
 
@@ -271,7 +271,7 @@
       &__photo-small {
         grid-column: 4 / 6;
         grid-row: 2 / 4;
-        background: url("../images/small.jpg") center/cover no-repeat;
+        background: url("../images/pizza-small.jpg") center/cover no-repeat;
       }
 
       &__readmore {

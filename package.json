@@ -8,10 +8,9 @@
     "parcel:build": "parcel build --target web --no-source-maps --no-cache",
     "clean": "rimraf dist .cache .cache-loader .parcel-cache",
     "dev": "npm-run-all clean parcel:serve",
-    "optimize:images": "node optimize-images.js",
-    "build": "npm-run-all clean optimize:images parcel:build",
-     "stylelint": "stylelint src/**/*.scss",
-   
+    "resize-all": "node resize-all.js",
+    "build": "npm-run-all clean resize-all parcel:build",
+    "stylelint": "stylelint src/**/*.scss",
     "test": "echo 'Everything is working as expected ✅\nStart working on your project by running \\033[1mnpm run dev\\033[0m'"
   },
   "targets": {
