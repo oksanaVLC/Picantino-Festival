@@ -81,7 +81,8 @@
     border-radius: 7px;
     padding: 2.5rem 1.5rem; // menos padding en móvil
     box-shadow: 4px 4px 10px rgb(0 128 0 / 50%);
-    background-color: v.$text-color;
+
+    /* background-color: v.$text-color;*/
 
     &__title {
       margin-left: 50px; // separa contenido del badge sin aumentar padding general
@@ -140,21 +141,17 @@
       column-gap: 2rem;
       align-items: start;
     }
-
-    .info-section__button {
-      grid-column: 1 / -1; /* ocupa desde la columna 1 hasta la última */
-      margin-left: auto;
-    }
   }
 }
 
-// Undo basic layout for non-Grid-supporting browsers on desktop
 .festival {
   display: none;
 }
 
+// Undo basic layout for non-Grid-supporting browsers on desktop
+
 @supports (display: grid) {
-  @media (width >= 1024px) {
+  @media (min-width: 1024px) {
     .main-content {
       display: none;
     }
@@ -302,19 +299,19 @@
     }
   }
 
-  @media (width >= 1324px) {
+  @media (min-width: 1324px) {
     .festival {
       max-width: 80%;
     }
   }
 
-  @media (width >= 1864px) {
+  @media (min-width: 1864px) {
     .festival {
       max-width: 70%;
     }
   }
 
-  @media (width >= 1780px) {
+  @media (min-width: 1780px) {
     .festival {
       &__title {
         grid-column: 2 / 4;
@@ -330,4 +327,34 @@
   color: #fff;
   font-size: 2rem;
   margin-top: 50px;
+}
+
+@layer two, one;
+
+/* Capa ONE */
+
+@layer one {
+  .info-section.one {
+    background: v.$dark;
+    color: white;
+  }
+
+  .info-section.two {
+    background: white;
+    color: black;
+  }
+}
+
+/* Capa TWO */
+
+@layer two {
+  .info-section.one {
+    background: white;
+    color: black;
+  }
+
+  .info-section.two {
+    background: v.$dark;
+    color: white;
+  }
 }

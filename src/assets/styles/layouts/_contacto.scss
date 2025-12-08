@@ -2,16 +2,19 @@
 @use "sass:color";
 
 .form {
-  max-width: 600px;
+  max-width: 80dvmin; // máximo ancho relativo al viewport dinámico
   margin: 2rem auto;
-  padding: 78px 2rem 2rem; // Arriba, derecha, abajo, izquierda
+  padding: 10svh 2lvw 5svh; // padding dinámico según viewport
+
+  /*padding: 78px 2rem 2rem;  Arriba, derecha- izquierda, abajo*/
+
   background-color: #fff;
 
   &__title {
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 5lvw, 3.5rem); // mínimo 2rem, máximo 3.5rem
     margin-bottom: 1.5rem;
     text-align: center;
-    color: #111;
+    color: oklch(10% 0.15 280deg); // color moderno para el título
   }
 
   &__body {
@@ -35,33 +38,32 @@
   &__input,
   &__textarea {
     resize: vertical;
-    min-height: 120px;
-    padding: 0.75rem 1rem;
+    min-height: clamp(3rem, 5svh, 6rem);
+    padding: clamp(0.5rem, 1lvw, 1rem) clamp(0.75rem, 2lvw, 1.5rem);
     border: 1px solid #ccc;
     border-radius: 8px;
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 1.5lvw, 2rem);
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 
     &:focus {
       border-color: v.$primary-color;
-      box-shadow: 0 0 0 3px rgb(123 185 7 / 20%);
+      box-shadow: 0 0 0 0.5lvw oklch(50% 0.2 140deg / 20%);
       outline: none;
     }
   }
 
   &__button {
     padding: 0.75rem 1.5rem;
-    background-color: v.$primary-color;
-    color: #fff;
+    background-color: oklch(60% 0.25 140deg);
+    color: oklch(100% 0 0deg);
     font-size: 2rem;
-    font-weight: 600;
     border: none;
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 
     &:hover {
-      background-color: v.$dark;
+      background-color: color.scale(v.$primary-color, $lightness: -15%);
     }
 
     &:active {
